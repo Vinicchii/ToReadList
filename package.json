@@ -1,0 +1,14 @@
+{
+  "name": "toreadlist",
+  "version": "1.0.0",
+  "description": "Projeto NodeJS",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index"
+  },
+  "author": "Vinicius Maximiano",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
