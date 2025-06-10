@@ -176,7 +176,7 @@ i.bi.bi-x-square {
   transform: rotate(0deg);
 }
 i.bi.bi-x-square:hover {
-  transform: rotate(360deg);
+  transform: rotate(180deg);
   color: #e60b00;
 }
 
@@ -187,7 +187,7 @@ div#editCard > hr {
 div#editCard > p {
   padding: 1.5rem;
   text-align: center;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   line-height: 2rem;
 }
 
@@ -228,4 +228,30 @@ div.btns > a {
 #btnYes:hover {
   background-color: #3cf54b;
   color: #f4f1d9;
+}
+
+@media (max-width: 600px) {
+  input {
+    width: 60%;
+  }
+  button {
+    width: 30%;
+  }
+  ul > li {
+    padding: 0 0.7rem 0.5rem 0.7rem;
+  }
+  #btnGroup {
+    display: flex;
+  }
+  i.bi.bi-trash {
+    margin-left: 0.2rem;
+  }
+  div#editCard {
+    width: 20rem;
+  }
+  #group {
+    flex-direction: column;
+    align-items: unset;
+    align-content: center;
+  }
 }
