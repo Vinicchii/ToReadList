@@ -11,6 +11,12 @@
     <title>ReadList</title>
   </head>
   <body>
+    <% if(message != ""){ %>
+    <section class="message message-<%= type %>">
+      <p><%= message %></p>
+      <span id="close-message"><i class="bi-x-square"></i></span>
+    </section>
+    <% } %>
     <header>
       <% if(task == null){ %>
       <p>read<span>list</span></p>

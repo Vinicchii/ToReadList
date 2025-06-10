@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Edu+VIC+WA+NT+Hand:wght@400..700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 
 * {
   padding: 0;
@@ -229,7 +230,56 @@ div.btns > a {
   background-color: #3cf54b;
   color: #f4f1d9;
 }
+.message {
+  padding: 1rem;
+  position: fixed;
+  top: 0;
+  left: 35dvw;
+  right: 35dvw;
+  z-index: 10;
+  text-align: center;
+  font-family: "Roboto", "Arial";
+  font-size: 0.9rem;
+  font-weight: 600;
 
+  display: flex;
+  border-radius: 1.5rem;
+  margin-top: 1rem;
+  align-items: center;
+  justify-content: space-between;
+  animation: slideDown 0.5s ease-in-out;
+}
+.message-danger {
+  background-color: rgb(255, 197, 197);
+  color: #e60b00;
+  border: solid 2px #e60b00;
+}
+.message-success {
+  background-color: rgb(212, 253, 224);
+  color: #05ad13;
+  border: solid 2px #05ad13;
+}
+span#close-message {
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: 0.3 ease-in-out;
+  padding-left: 0.9rem;
+}
+span#close-message::hover {
+  color: #960700;
+}
+/*ANIMAÇÕES*/
+@keyframes slideDown {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+/* RESPONSIVIDADE*/
 @media (max-width: 600px) {
   input {
     width: 60%;
@@ -253,5 +303,9 @@ div.btns > a {
     flex-direction: column;
     align-items: unset;
     align-content: center;
+  }
+  .message {
+    left: 10dvw;
+    right: 10dvw;
   }
 }
