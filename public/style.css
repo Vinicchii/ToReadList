@@ -23,15 +23,28 @@ header {
   flex-direction: column;
 }
 
-header > p {
+.logo {
+  display: flex;
+  position: relative;
+  overflow: hidden;
+}
+
+.title {
   color: #322f23;
   font-weight: 500;
   font-size: 4rem;
   padding-bottom: 2rem;
-  width: 100%;
+  position: absolute;
+  opacity: 0;
+  top: 100%;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
 }
-p > span {
+#list {
   font-weight: 400;
+  font-size: 4rem;
+  color: #322f23;
+  position: relative;
+  margin-left: 9rem;
 }
 form {
   width: 100%;
@@ -68,9 +81,7 @@ button:hover {
   background-color: #322f23;
   cursor: pointer;
 }
-#tasks {
-  /* padding: 1rem; */
-}
+
 ul {
   list-style: none;
   display: flex;
@@ -279,6 +290,12 @@ span#close-message::hover {
     opacity: 1;
   }
 }
+
+.char {
+  transform: translateY(100px);
+  transition: transform 0.5s;
+}
+
 /* RESPONSIVIDADE*/
 @media (max-width: 600px) {
   input {
