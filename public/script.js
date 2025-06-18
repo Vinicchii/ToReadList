@@ -4,6 +4,9 @@ const message = document.getElementsByClassName("message")[0];
 const closePop = () => {
   message.style.display = "none";
 };
+setTimeout(() => {
+  message.style.display = "none";
+}, 3000);
 
 setTimeout(() => {
   gsap.from("#list", {
