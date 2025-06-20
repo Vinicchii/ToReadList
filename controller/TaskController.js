@@ -83,7 +83,7 @@ const deleteOneTask = async (req, res) => {
 };
 
 module.exports = {
-  goHome,
+  welcome,
   getAllTasks,
   createTask,
   getById,
