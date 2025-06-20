@@ -21,6 +21,7 @@
     <% } %>
     <header>
       <img class="img-left" src="/Frames.png" />
+      <img class="img-center" src="/CentralFrame.png" />
       <img src="/Frames.png" alt="" class="img-right" />
       <% if(task == null){ %>
 
@@ -58,8 +59,17 @@
         <% tasksList.forEach((task)=>{ %>
         <li>
           <div id="group">
-            <a href="/"><%= task.task %></a>
-            <span>Criado em <%= task.date.toLocaleDateString('pt-br') %></span>
+            <a href="/home"><%= task.task %></a>
+
+            <div class="helper">
+              <span
+                >Criado em <%= task.date.toLocaleDateString('pt-br') %></span
+              >
+              <span>
+                <progress class="progressBar" max="100" value="30"></progress
+                ><span class="progressValue">30%</span></span
+              >
+            </div>
           </div>
           <div id="btnGroup">
             <a href="/getById/<%= task._id %>/update"
@@ -80,12 +90,12 @@
       <div id="editCard">
         <div id="head">
           <h2>Confirmação</h2>
-          <a href="/"><i class="bi bi-x-square"></i></a>
+          <a href="/home"><i class="bi bi-x-square"></i></a>
         </div>
         <hr />
         <p>Deseja apagar <b><%= taskDelete.task %></b> da sua lista?</p>
         <div class="btns">
-          <a id="btnNot" href="/">Não</a>
+          <a id="btnNot" href="/home">Não</a>
           <a id="btnYes" href="/deleteOne/<%= taskDelete._id %>">Sim</a>
         </div>
       </div>

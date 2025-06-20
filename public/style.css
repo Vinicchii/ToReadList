@@ -47,6 +47,14 @@ body::-webkit-scrollbar {
   height: 7rem;
   transform: scaleX(-1);
 }
+.img-center {
+  width: 11rem;
+  height: 11rem;
+  position: absolute;
+  top: -12.2%;
+  left: 50%;
+  transform: translateX(-50%) scaleY(-1);
+}
 .img-bottom-left {
   position: absolute;
   left: 0;
@@ -151,6 +159,28 @@ ul > li {
   justify-content: space-between;
 }
 
+.progressBar {
+  background-color: #f4f1d9;
+  height: 0.5rem;
+  border: 1px solid #322f23;
+  margin-bottom: 0.4rem;
+  border-radius: 0.7rem;
+}
+
+.progressBar::-webkit-progress-bar {
+  background-color: #f4f1d9;
+}
+.progressBar::-webkit-progress-value {
+  background-color: #322f23;
+}
+.progressBar::-webkit-progress-bar {
+  border-radius: 0.7rem;
+}
+.progressValue {
+  color: #322f23;
+  font-weight: 500;
+}
+
 #group > a {
   text-decoration: none;
   color: #322f23;
@@ -181,7 +211,12 @@ i.bi.bi-trash:hover {
   background-color: #322f23;
   color: #f4f1d9;
 }
-#group > span {
+.helper {
+  display: flex;
+  width: 170%;
+  justify-content: space-between;
+}
+.helper > span {
   color: #6b654b;
   font-style: italic;
   font-size: 0.9rem;
@@ -190,8 +225,9 @@ i.bi.bi-trash:hover {
 
 #group {
   display: flex;
-  align-items: center;
   flex-wrap: wrap;
+  flex-direction: column;
+  align-items: flex-start;
 }
 ul > li:nth-child(odd) {
   background-color: #ebe591;
@@ -376,6 +412,10 @@ footer {
   div#editCard {
     width: 20rem;
   }
+  .helper {
+    display: block;
+    width: 100%;
+  }
   #group {
     flex-direction: column;
     align-items: unset;
@@ -384,5 +424,8 @@ footer {
   .message {
     left: 10dvw;
     right: 10dvw;
+  }
+  .img-center {
+    top: -9.5%;
   }
 }

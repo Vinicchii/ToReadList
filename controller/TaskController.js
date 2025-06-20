@@ -3,6 +3,10 @@ const Task = require("../models/Task");
 let message = "";
 let type = "";
 
+const welcome = (req, res) => {
+  return res.render("login");
+};
+
 const getAllTasks = async (req, res) => {
   try {
     setTimeout(() => {
@@ -27,14 +31,14 @@ const createTask = async (req, res) => {
   if (!task.task) {
     message = "Insira um texto válido para adicionar a lista!";
     type = "danger";
-    return res.redirect("/");
+    return res.redirect("/home");
   }
 
   try {
     await Task.create(task);
     message = "Livro adicionado com sucesso!";
     type = "success";
-    return res.redirect("/");
+    return res.redirect("/home");
   } catch (err) {
     res.status(500).send({ error: err.message });
   }
@@ -61,7 +65,7 @@ const updateOneTask = async (req, res) => {
     await Task.updateOne({ _id: req.params.id }, task);
     message = "Livro atualizado com sucesso!";
     type = "success";
-    res.redirect("/");
+    res.redirect("/home");
   } catch (err) {
     res.status(500).send({ error: err.message });
   }
@@ -72,13 +76,14 @@ const deleteOneTask = async (req, res) => {
     await Task.deleteOne({ _id: req.params.id });
     message = "Livro apagado com sucesso";
     type = "success";
-    res.redirect("/");
+    res.redirect("/home");
   } catch (err) {
     res.status(500).send({ error: err.message });
   }
 };
 
 module.exports = {
+  goHome,
   getAllTasks,
   createTask,
   getById,
