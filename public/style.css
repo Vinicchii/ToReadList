@@ -96,12 +96,26 @@ header {
   top: 100%;
   clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
 }
+.editTitle {
+  color: #322f23;
+  font-weight: 500;
+  font-size: 4rem;
+  padding-bottom: 2rem;
+  opacity: 1;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+
 #list {
   font-weight: 400;
   font-size: 4rem;
   color: #322f23;
   position: relative;
   margin-left: 9rem;
+}
+#editList {
+  font-weight: 400;
+  font-size: 4rem;
+  color: #322f23;
 }
 form {
   width: 100%;
@@ -330,6 +344,99 @@ div.btns > a {
   background-color: #3cf54b;
   color: #f4f1d9;
 }
+#progressView {
+  cursor: pointer;
+}
+
+section#editProgress {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #00000080;
+  z-index: 9;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  pointer-events: auto;
+}
+
+div#progressCard {
+  display: flex;
+  flex-direction: column;
+  width: 30rem;
+  position: fixed;
+  background-color: #ebe591;
+  color: #6b654b;
+  font-weight: 500;
+  padding: 1.7rem;
+  border-radius: 1.5rem;
+}
+#bookProgress {
+  color: #322f23;
+  font-weight: 700;
+  margin-right: 0.4rem;
+}
+#progressCard > div#progressHeader {
+  display: flex;
+  justify-content: space-between;
+}
+
+div#progressHeader > div {
+  display: flex;
+}
+#progressCard > form {
+  display: flex;
+  flex-direction: column;
+}
+#progressCard > span > h2 {
+  align-self: center;
+  color: #322f23;
+}
+#progressCard > hr {
+  border-color: #322f23;
+  margin-bottom: 1rem;
+}
+#progressCard > form > input {
+  margin: 0;
+  border: 1px solid #322f23;
+  align-self: center;
+  padding: 0.6rem;
+  border-radius: 1.5rem;
+  margin-bottom: 1rem;
+  width: 60%;
+  font-size: 1rem;
+  font-family: "Edu VIC WA NT Hand", "sans-serif";
+  font-weight: 500;
+  outline: none;
+  background-color: #f4f1d9;
+  color: #322f23;
+}
+#progressCard > form > button {
+  align-self: center;
+
+  border-radius: 1.5rem;
+  border: 1px solid #322f23;
+  color: #322f23;
+  background-color: #6b654b;
+  font-size: 1rem;
+  width: 65%;
+  transition: ease-in-out 0.5s;
+}
+#progressCard > form button:hover {
+  background-color: #322f23;
+  color: #f4f1d9;
+  border: 1px solid #f4f1d9;
+  cursor: pointer;
+}
+#progressHeader > a > .bi.bi-x-square {
+  color: #322f23;
+}
+#progressHeader > a > .bi.bi-x-square:hover {
+  color: #e60b00;
+}
+
 .message {
   padding: 1rem;
   position: fixed;
@@ -410,6 +517,9 @@ footer {
     margin-left: 0.2rem;
   }
   div#editCard {
+    width: 20rem;
+  }
+  div#progressCard {
     width: 20rem;
   }
   .helper {

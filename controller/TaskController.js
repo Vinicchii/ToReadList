@@ -36,6 +36,7 @@ const createTask = async (req, res) => {
 
   try {
     await Task.create(task);
+
     message = "Livro adicionado com sucesso!";
     type = "success";
     return res.redirect("/home");
@@ -52,7 +53,13 @@ const getById = async (req, res) => {
       res.render("index", { task, taskDelete: null, tasksList, message, type });
     } else {
       const taskDelete = await Task.findOne({ _id: req.params.id });
-      res.render("index", { task: null, taskDelete, tasksList, message, type });
+      res.render("index", {
+        task: null,
+        taskDelete,
+        tasksList,
+        message,
+        type,
+      });
     }
   } catch (err) {
     res.status(500).send({ error: err.message });
@@ -64,6 +71,28 @@ const updateOneTask = async (req, res) => {
     const task = req.body;
     await Task.updateOne({ _id: req.params.id }, task);
     message = "Livro atualizado com sucesso!";
+    type = "success";
+    res.redirect("/home");
+  } catch (err) {
+    res.status(500).send({ error: err.message });
+  }
+};
+const updateProgress = async (req, res) => {
+  try {
+    const { currentPage, totalPages } = req.body;
+
+    let progress = 0;
+    if (totalPages > 0) {
+      progress = Math.round((currentPage / totalPages) * 100);
+    } else {
+      progress = 0;
+    }
+
+    await Task.updateOne(
+      { _id: req.params.id },
+      { currentPage, totalPages, progress }
+    );
+    message = "Progresso atualizado com sucesso!";
     type = "success";
     res.redirect("/home");
   } catch (err) {
@@ -88,5 +117,6 @@ module.exports = {
   createTask,
   getById,
   updateOneTask,
+  updateProgress,
   deleteOneTask,
 };

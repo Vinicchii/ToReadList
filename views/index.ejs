@@ -43,8 +43,8 @@
       </form>
       <% } else{ %>
       <div class="logo">
-        <p class="title">Edit</p>
-        <span id="list">list</span>
+        <p class="editTitle">Edit</p>
+        <span id="editList">list</span>
       </div>
       <form action="/updateOne/<%=task._id%>" method="post">
         <input type="text" name="task" id="task" value="<%=task.task %>" />
@@ -65,9 +65,17 @@
               <span
                 >Criado em <%= task.date.toLocaleDateString('pt-br') %></span
               >
-              <span>
-                <progress class="progressBar" max="100" value="30"></progress
-                ><span class="progressValue">30%</span></span
+              <span
+                id="progressView"
+                onclick="openProgressModal('<%= task._id %>','<%=task.task%>', <%= task.progress%>, <%= task.currentPage%>, <%= task.totalPages %>)"
+              >
+                <progress
+                  class="progressBar"
+                  max="100"
+                  value="<%= task.progress %>"
+                >
+                  ></progress
+                ><span class="progressValue"><%= task.progress %>%</span></span
               >
             </div>
           </div>
@@ -101,6 +109,46 @@
       </div>
     </section>
     <% } %>
+
+    <!-- MODAL DE EDIÇÃO DO PROGRESSO -->
+
+    <section id="editProgress">
+      <div id="progressCard">
+        <div id="progressHeader">
+          <div>
+            <p id="bookProgress"><strong>progress</strong></p>
+            <p>de progresso em:</p>
+          </div>
+          <a href="/home"><i class="bi bi-x-square"></i></a>
+        </div>
+        <span>
+          <h2 id="bookTitle">title</h2>
+        </span>
+        <hr />
+        <form action="" method="post">
+          <input
+            type="number"
+            value="0"
+            min="1"
+            name="currentPage"
+            id="currentPage"
+            placeholder="Página que você está Ex: 92"
+          />
+          <input
+            type="number"
+            value="0"
+            min="1"
+            name="totalPages"
+            id="totalPages"
+            placeholder="Quantidade de páginas do livro Ex: 386"
+          />
+          <button type="submit" id="progressBtn">
+            <i class="bi bi-book-half"></i>
+          </button>
+        </form>
+      </div>
+    </section>
+
     <footer>
       <img class="img-bottom-left" src="/Frames.png" />
       <img class="img-bottom-right" src="/Frames.png" />

@@ -4,6 +4,20 @@ const message = document.getElementsByClassName("message")[0];
 const closePop = () => {
   message.style.display = "none";
 };
+
+const openProgressModal = (id, title, progress, current, total) => {
+  const form = document.querySelector("#editProgress form");
+  if (!form) return;
+
+  form.action = `/progress/${id}`;
+  document.getElementById("bookTitle").textContent = title;
+  document.getElementById("bookProgress").textContent = progress + "%";
+  document.getElementById("currentPage").value = current;
+  document.getElementById("totalPages").value = total;
+
+  document.getElementById("editProgress").style.display = "flex";
+};
+
 setTimeout(() => {
   message.style.display = "none";
 }, 3000);
